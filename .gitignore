@@ -1,0 +1,13 @@
+# Originais pesados (fotos RAW, vídeo do drone, referências).
+# Ficam apenas no OneDrive: o site usa as versões otimizadas em assets/.
+01. materiais aux/
+
+# Documentos internos do projeto, não fazem parte do site publicado.
+Claude.md
+Arquitetura e Conteudo - Landing Page.md
+preparar-assets.py
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
