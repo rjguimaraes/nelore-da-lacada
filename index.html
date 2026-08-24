@@ -37,7 +37,7 @@
 <header class="cabecalho" id="cabecalho">
   <div class="cabecalho__interno">
     <a class="cabecalho__logo" href="#hero" aria-label="Nelore da Laçada, início">
-      <img src="assets/logo-negativo.png" alt="Nelore da Laçada">
+      <img src="assets/logo-principal.png" alt="Nelore da Laçada">
     </a>
 
     <button class="menu-botao" id="menu-botao" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
@@ -59,10 +59,17 @@
 
 <!-- ===================== 1. HERO ===================== -->
 <section class="hero" id="hero">
+  <!-- No celular fica a foto: menos dado e sem autoplay bloqueado.
+       A partir de 700px o vídeo assume, com a foto por trás enquanto carrega. -->
   <picture class="hero__imagem">
     <source media="(max-width: 700px)" srcset="assets/hero-mobile.jpg">
-    <img src="assets/hero.jpg" alt="Rebanho Nelore da Laçada caminhando a pasto" fetchpriority="high">
+    <img src="assets/hero-poster.jpg" alt="Rebanho Nelore da Laçada caminhando a pasto" fetchpriority="high">
   </picture>
+
+  <video class="hero__video" poster="assets/hero-poster.jpg"
+         autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
 
   <div class="hero__conteudo">
     <h1 class="hero__titulo">Genética consistente,<br>construída geração após geração.</h1>
@@ -84,6 +91,10 @@
       <li class="marco">
         <span class="marco__ano">1958</span>
         <span class="marco__texto">Início da seleção</span>
+      </li>
+      <li class="marco">
+        <span class="marco__ano">1973</span>
+        <span class="marco__texto">Início da inseminação artificial</span>
       </li>
       <li class="marco">
         <span class="marco__ano">1994</span>
@@ -151,7 +162,11 @@
       </article>
     </div>
 
-    <p class="nota">Os animais são avaliados pelo PMGZ.</p>
+    <div class="avaliacao">
+      <p class="kicker">Avaliação genética</p>
+      <img class="avaliacao__selo" src="assets/pmgz.png" alt="PMGZ, Programa de Melhoramento Genético de Zebuínos">
+    </div>
+
     <p class="fechamento">O objetivo não é selecionar um bom animal. É aumentar a frequência de animais bons dentro do rebanho.</p>
   </div>
 </section>
@@ -178,7 +193,7 @@
 <!-- ===================== 6. AS FAZENDAS ===================== -->
 <section class="secao secao--papel" id="fazendas">
   <div class="conteudo">
-    <h2 class="titulo">Duas regiões, o mesmo trabalho.</h2>
+    <h2 class="titulo">Venha nos visitar.</h2>
 
     <div class="fazendas">
       <article class="fazenda">
@@ -218,8 +233,8 @@
 <!-- ===================== 8. CONTATO ===================== -->
 <section class="secao secao--escuro" id="contato">
   <div class="conteudo centro estreito">
-    <h2 class="titulo titulo--claro">Fale direto com a fazenda.</h2>
-    <p class="apoio apoio--claro">Dúvida sobre um touro, sobre o catálogo ou sobre a seleção. Manda mensagem.</p>
+    <h2 class="titulo titulo--claro">Vamos conversar.</h2>
+    <p class="apoio apoio--claro">Chama no WhatsApp e a gente responde.</p>
     <a class="botao botao--claro" href="https://wa.me/5516992282289" target="_blank" rel="noopener">Falar no WhatsApp</a>
     <p class="contato__secundario">
       <a href="https://www.instagram.com/fazendanelorelacada/" target="_blank" rel="noopener">@fazendanelorelacada</a>
