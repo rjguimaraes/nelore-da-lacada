@@ -1,0 +1,6 @@
+# Site institucional Nelore da Laçada. Nada a bloquear: é uma página só,
+# e os arquivos internos do projeto não são publicados.
+User-agent: *
+Allow: /
+
+Sitemap: https://neloredalacada.com.br/sitemap.xml

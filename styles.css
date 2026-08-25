@@ -335,7 +335,9 @@ p { margin: 0 0 1rem; }
 }
 .hero__titulo {
   font-size: clamp(1.75rem, 6.4vw, 3.4rem);
-  max-width: 18ch;
+  /* 20ch e nao 18ch: com a marca no comeco o titulo ficou mais longo e a
+     18ch sobrava "geracao" sozinha na ultima linha do desktop. */
+  max-width: 20ch;
   margin-bottom: 1rem;
 }
 .hero__apoio {
