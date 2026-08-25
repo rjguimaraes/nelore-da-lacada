@@ -25,6 +25,15 @@
     }
   });
 
+  /* Vídeo do hero: escolhe o arquivo pela largura da tela antes de carregar,
+     para o celular não baixar a versão de desktop. */
+  var video = document.querySelector('.hero__video');
+  if (video) {
+    var estreito = window.matchMedia('(max-width: 700px)').matches;
+    video.src = video.getAttribute(estreito ? 'data-src-mobile' : 'data-src-desktop');
+    video.load();
+  }
+
   /* O cabeçalho ganha fundo sólido assim que a foto do hero sai da tela */
   function atualizarCabecalho() {
     cabecalho.classList.toggle('cabecalho--solido', window.scrollY > 80);

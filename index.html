@@ -61,17 +61,16 @@
 
 <!-- ===================== 1. HERO ===================== -->
 <section class="hero" id="hero">
-  <!-- No celular fica a foto: menos dado e sem autoplay bloqueado.
-       A partir de 700px o vídeo assume, com a foto por trás enquanto carrega. -->
+  <!-- Imagem de fallback, visível só enquanto o vídeo carrega ou se ele falhar -->
   <picture class="hero__imagem">
     <source media="(max-width: 700px)" srcset="assets/hero-mobile.jpg">
     <img src="assets/hero-poster.jpg" alt="Rebanho Nelore da Laçada caminhando a pasto" fetchpriority="high">
   </picture>
 
-  <video class="hero__video" poster="assets/hero-poster.jpg"
-         autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
-    <source src="assets/hero.mp4" type="video/mp4">
-  </video>
+  <!-- O src é definido em script.js: recorte vertical e mais leve no celular,
+       16:9 no desktop. Assim só um dos dois arquivos é baixado. -->
+  <video class="hero__video" data-src-desktop="assets/hero.mp4" data-src-mobile="assets/hero-mobile.mp4"
+         autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
 
   <div class="hero__conteudo">
     <h1 class="hero__titulo">Genética consistente,<br>construída geração após geração</h1>
@@ -117,16 +116,15 @@
 <!-- ===================== 3. QUEM SOMOS ===================== -->
 <section class="secao secao--claro" id="quem-somos">
   <div class="conteudo duas-colunas">
-    <figure class="figura-placeholder">
+    <figure class="figura">
       <img src="assets/quem-somos.jpg" alt="Touros Nelore da Laçada a pasto">
-      <figcaption class="etiqueta-placeholder">[PLACEHOLDER foto da família]</figcaption>
     </figure>
 
     <div>
       <p class="kicker">Quem somos</p>
       <h2 class="titulo">A mesma família, uma seleção consistente</h2>
-      <p>A seleção começou em Quirinópolis, Goiás, com Neusa Guimarães, que contou com o apoio de Fausto Pereira Lima no início desse trabalho. Desde então, segue o mesmo princípio: selecionar animais que dão resultado a pasto</p>
-      <p>Hoje, Beto Guimarães está à frente da seleção e da fazenda. Seus filhos Rafael, Lorenzo e Eduarda participam do trabalho e do processo de sucessão, mantendo a continuidade de uma seleção construída geração após geração</p>
+      <p>A seleção começou em Quirinópolis, Goiás, com Neusa Guimarães, que contou com o apoio de Fausto Pereira Lima no início desse trabalho. Desde então, segue o mesmo princípio: selecionar animais que dão resultado a pasto.</p>
+      <p>Hoje, Beto Guimarães está à frente da seleção e da fazenda. Seus filhos Rafael, Lorenzo e Eduarda participam do trabalho e do processo de sucessão, mantendo a continuidade de uma seleção construída geração após geração.</p>
     </div>
   </div>
 </section>
@@ -175,9 +173,8 @@
 <!-- ===================== 5. OS ANIMAIS ===================== -->
 <section class="secao secao--claro" id="animais">
   <div class="conteudo">
-    <h2 class="titulo">O animal é consequência da seleção</h2>
-    <p class="apoio apoio--forte">Nosso objetivo é aumentar a rentabilidade de quem usa nossa genética</p>
-    <p class="apoio">Buscamos o equilíbrio entre avaliação visual, DEPs e resultado das progênies, para selecionar animais que entreguem resultado a campo</p>
+    <h2 class="titulo">Nosso objetivo é aumentar a rentabilidade de quem usa nossa genética</h2>
+    <p class="apoio">Buscamos o equilíbrio entre avaliação visual, DEPs e resultado das progênies, para selecionar animais que entreguem resultado a campo.</p>
 
     <!-- A galeria usa grid automático: funciona com 3 ou com 6 fotos, sem ajuste de código. -->
     <div class="galeria">
@@ -255,7 +252,7 @@
       <p><strong>Fazenda Laçada · Nelore da Laçada</strong></p>
       <p>Eficiência desde 1958</p>
       <p>Quirinópolis, GO · Pium, TO</p>
-      <p class="etiqueta-placeholder">[PLACEHOLDER razão social e CNPJ] · [PLACEHOLDER e-mail]</p>
+      <p><a href="mailto:neloredalacada2@gmail.com">neloredalacada2@gmail.com</a></p>
     </div>
   </div>
 </footer>

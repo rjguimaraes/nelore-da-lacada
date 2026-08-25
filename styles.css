@@ -278,8 +278,16 @@ p { margin: 0 0 1rem; }
 .hero__imagem { position: absolute; inset: 0; }
 .hero__imagem img { width: 100%; height: 100%; object-fit: cover; }
 
-/* O vídeo só entra no desktop; no celular fica a foto do <picture> */
-.hero__video { display: none; }
+/* O vídeo cobre o hero em qualquer tela. A foto do <picture> fica atrás,
+   aparecendo só enquanto ele carrega ou se não carregar. */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 
 /* Overlay de leitura: escuro na base, mais presente no topo por causa do
    vídeo, que muda de luminosidade a cada frame */
@@ -344,9 +352,15 @@ p { margin: 0 0 1rem; }
 /* ---------- 9. Quem somos ---------- */
 .duas-colunas { display: grid; gap: 2.5rem; }
 
-.figura-placeholder { margin: 0; }
-.figura-placeholder img { width: 100%; object-fit: cover; }
-.figura-placeholder figcaption { margin-top: .6rem; }
+.figura { margin: 0; }
+/* A foto é exportada em 3:2 e exibida em 4:5. O object-position desloca o
+   enquadramento para a esquerda, centralizando as cabeças dos três touros. */
+.figura img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 34% center;
+}
 
 /* ---------- 10. Pilares de seleção ---------- */
 .pilares {
@@ -447,9 +461,9 @@ p { margin: 0 0 1rem; }
   padding: 2.5rem 0;
 }
 .rodape__interno { display: grid; gap: 1.5rem; align-items: center; }
-.rodape__logo { height: 64px; width: auto; }
+.rodape__logo { height: 120px; width: auto; }
 .rodape__dados p { margin: 0 0 .2rem; font-size: .8rem; opacity: .9; }
-.rodape__dados .etiqueta-placeholder { color: var(--dourado); margin-top: .6rem; opacity: 1; }
+.rodape__dados a { text-decoration: none; border-bottom: 1px solid var(--dourado); }
 
 /* ---------- 16. WhatsApp flutuante ---------- */
 .whatsapp-flutuante {
@@ -493,16 +507,6 @@ p { margin: 0 0 1rem; }
   .hero { margin-top: -136px; padding-top: 136px; }
 
   .linha-tempo { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
-
-  /* O vídeo substitui a foto e ocupa o quadro inteiro do hero */
-  .hero__video {
-    display: block;
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 
   .menu-botao { display: none; }
   .menu {
