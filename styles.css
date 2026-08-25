@@ -456,7 +456,42 @@ p { margin: 0 0 1rem; }
   color: var(--oliva-escuro);
   margin-bottom: 1rem;
 }
-.fazenda p:last-child { margin-bottom: 0; font-size: .95rem; }
+.fazenda__info p:last-child { margin-bottom: 0; font-size: .95rem; }
+
+/* Mapa do estado. O PNG e transparente e usa o Bege Papel do Brand Kit: sobre
+   o Bege Claro do card ele le como silhueta tonal, nao como imagem colada.
+   Nenhuma moldura ou fundo extra e necessario.
+   Os dois estados tem proporcoes bem diferentes (GO quase quadrado, TO alto e
+   estreito), entao cada um entra na mesma caixa com object-fit: contain:
+   mesma altura nos dois cards, largura livre, sem distorcao. */
+.fazenda__mapa { margin-top: 1.5rem; }
+.fazenda__mapa img {
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Acao secundaria. Texto em Oliva Escuro com filete Dourado, nao texto dourado:
+   o padrao dourado do site so aparece sobre fundo escuro e aqui, sobre o Bege
+   Claro, ficaria em 2,2:1 de contraste. */
+.fazenda__rota {
+  display: inline-block;
+  margin-top: .9rem;
+  font-family: var(--sans);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--oliva-escuro);
+  text-decoration: none;
+  border-bottom: 1px solid var(--dourado);
+  padding-bottom: .2rem;
+  transition: opacity .2s ease;
+}
+/* enquanto nao tem destino, nao se comporta como link */
+.fazenda__rota:not([href]) { cursor: default; }
+.fazenda__rota[href]:hover { opacity: .7; }
 
 /* ---------- 13. Depoimento ---------- */
 .depoimento { margin: 2.5rem 0 0; }
@@ -483,7 +518,7 @@ p { margin: 0 0 1rem; }
   font-size: .85rem;
   color: rgba(236, 229, 214, .85);
 }
-.contato__secundario span { color: var(--dourado); margin: 0 .3rem; }
+.contato__secundario span { color: var(--dourado); margin: 0 .45rem; }
 
 /* ---------- 15. Rodapé ---------- */
 .rodape {
@@ -493,7 +528,7 @@ p { margin: 0 0 1rem; }
   padding: 2.5rem 0;
 }
 .rodape__interno { display: grid; gap: 1.5rem; align-items: center; }
-.rodape__logo { height: 120px; width: auto; }
+.rodape__logo { height: 88px; width: auto; }
 /* cor levemente suavizada no lugar de opacity, para não apagar o link dourado */
 .rodape__dados p { margin: 0 0 .2rem; font-size: .8rem; color: rgba(236, 229, 214, .9); }
 
@@ -557,4 +592,24 @@ p { margin: 0 0 1rem; }
   .galeria { gap: 1.75rem; }
 
   .whatsapp-flutuante { right: 1.75rem; bottom: 1.75rem; width: 58px; height: 58px; }
+
+  .rodape__logo { height: 110px; }
+}
+
+/* Card da fazenda em duas colunas: informacoes a esquerda, mapa a direita.
+   So a partir de 1100px. Os cards ja sao grid de duas colunas desde 700px, e
+   dividir cada card cedo demais estrangula a coluna de texto: a 960px sobrariam
+   ~180px para "Fazenda Lacada Lagoa Azul" em serifada, contra ~250px aqui.
+   Abaixo deste ponto vale o empilhamento vertical, o mesmo do celular. */
+@media (min-width: 1100px) {
+  .fazenda {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    gap: 1.75rem;
+    align-items: start;
+  }
+  /* a coluna do mapa se centraliza: como GO e TO tem larguras renderizadas
+     diferentes, e o centro que deixa a acao no mesmo ponto nos dois cards */
+  .fazenda__mapa { margin-top: 0; text-align: center; }
+  .fazenda__mapa img { height: 165px; object-position: center; }
 }

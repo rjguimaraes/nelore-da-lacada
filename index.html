@@ -197,19 +197,34 @@
 
     <div class="fazendas">
       <article class="fazenda">
-        <p class="fazenda__ano">1958</p>
-        <h3>Fazenda Laçada</h3>
-        <p class="fazenda__local">Quirinópolis, Goiás</p>
-        <p>Origem da seleção</p>
-        <!-- Foto aérea entra aqui quando disponível. -->
+        <div class="fazenda__info">
+          <p class="fazenda__ano">1958</p>
+          <h3>Fazenda Laçada</h3>
+          <p class="fazenda__local">Quirinópolis, Goiás</p>
+          <p>Origem da seleção</p>
+        </div>
+
+        <div class="fazenda__mapa">
+          <img src="assets/mapa-go.png" alt="Localização da Fazenda Laçada no estado de Goiás" loading="lazy">
+          <!-- Quando houver a rota do Google Maps, acrescentar na âncora abaixo:
+               href="..." target="_blank" rel="noopener".
+               Sem href ela não é clicável nem recebe foco. -->
+          <a class="fazenda__rota" aria-disabled="true">Traçar rotas</a>
+        </div>
       </article>
 
       <article class="fazenda">
-        <p class="fazenda__ano">2003</p>
-        <h3>Fazenda Laçada Lagoa Azul</h3>
-        <p class="fazenda__local">Pium, Tocantins</p>
-        <p>Continuidade do trabalho no Tocantins</p>
-        <!-- Foto aérea entra aqui quando disponível. -->
+        <div class="fazenda__info">
+          <p class="fazenda__ano">2003</p>
+          <h3>Fazenda Laçada Lagoa Azul</h3>
+          <p class="fazenda__local">Pium, Tocantins</p>
+          <p>Continuidade do trabalho no Tocantins</p>
+        </div>
+
+        <div class="fazenda__mapa">
+          <img src="assets/mapa-to.png" alt="Localização da Fazenda Laçada Lagoa Azul no estado do Tocantins" loading="lazy">
+          <a class="fazenda__rota" aria-disabled="true">Traçar rotas</a>
+        </div>
       </article>
     </div>
   </div>
@@ -226,7 +241,7 @@
       <blockquote>
         <p>“O que mais chama atenção é a consistência genética. A cada geração o gado vem mais padronizado e melhor. A genética da Laçada imprime rápido no rebanho.”</p>
       </blockquote>
-      <figcaption class="depoimento__autor">Pedro Galli — Mato Grosso</figcaption>
+      <figcaption class="depoimento__autor">Pedro Galli — Brasnorte - MT</figcaption>
     </figure>
   </div>
 </section>
@@ -240,7 +255,7 @@
     <a class="botao botao--claro" href="https://wa.me/5516992282289" target="_blank" rel="noopener">Falar no WhatsApp</a>
     <p class="contato__secundario">
       <a href="https://www.instagram.com/fazendanelorelacada/" target="_blank" rel="noopener">@fazendanelorelacada</a>
-      <span>·</span> Quirinópolis - GO <span>·</span> Pium - TO
+      <span>|</span> Quirinópolis - GO <span>|</span> Pium - TO
     </p>
   </div>
 </section>
@@ -250,11 +265,10 @@
 <!-- ===================== 9. RODAPÉ ===================== -->
 <footer class="rodape">
   <div class="conteudo rodape__interno">
-    <img class="rodape__logo" src="assets/logo.svg" alt="Nelore da Laçada">
+    <img class="rodape__logo" src="assets/logo-rodape.png" alt="Nelore da Laçada">
     <div class="rodape__dados">
       <p><strong>Fazenda Laçada · Nelore da Laçada</strong></p>
-      <p>Eficiência desde 1958</p>
-      <p>Quirinópolis, GO · Pium, TO</p>
+      <p>Quirinópolis - GO | Pium - TO</p>
       <p><a href="mailto:neloredalacada2@gmail.com">neloredalacada2@gmail.com</a></p>
     </div>
   </div>
