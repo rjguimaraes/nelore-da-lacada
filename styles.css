@@ -98,6 +98,15 @@ p { margin: 0 0 1rem; }
 .centro .apoio { margin-left: auto; margin-right: auto; }
 .apoio--claro { color: var(--bege-claro); opacity: .9; }
 
+/* Frase de abertura com mais peso, sem competir com o título da seção */
+.apoio--forte {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+  color: var(--verde-profundo);
+  max-width: 32ch;
+  margin-bottom: .85rem;
+}
+
 /* Filete dourado curto, divisor padrão da marca */
 .titulo::after {
   content: "";
