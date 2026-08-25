@@ -377,13 +377,12 @@ p { margin: 0 0 1rem; }
 .duas-colunas { display: grid; gap: 2.5rem; }
 
 .figura { margin: 0; }
-/* A foto é exportada em 3:2 e exibida em 4:5. O object-position desloca o
-   enquadramento para a esquerda, centralizando as cabeças dos três touros. */
+/* A foto já é exportada em 4:5, a mesma proporção do bloco: o cover não corta
+   nada e o enquadramento é o que veio do preparar-assets.py. */
 .figura img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: 34% center;
 }
 
 /* ---------- 10. Pilares de seleção ---------- */
