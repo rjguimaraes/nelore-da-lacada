@@ -99,6 +99,10 @@
         <span class="marco__texto">Início da inseminação artificial</span>
       </li>
       <li class="marco">
+        <span class="marco__ano">1976</span>
+        <span class="marco__texto">Início da participação nas provas de ganho de peso do IZ</span>
+      </li>
+      <li class="marco">
         <span class="marco__ano">1994</span>
         <span class="marco__texto">Início dos trabalhos com programa de melhoramento genético</span>
       </li>
@@ -124,7 +128,7 @@
     <div>
       <p class="kicker">Quem somos</p>
       <h2 class="titulo">A mesma família, uma seleção consistente</h2>
-      <p>A seleção começou em Quirinópolis, Goiás, com Neusa Guimarães, que contou com o apoio de Fausto Pereira Lima no início desse trabalho. Desde então, segue o mesmo princípio: selecionar animais que dão resultado a pasto.</p>
+      <p>A seleção começou em 1958, em Quirinópolis - GO, com Luiz e Neusa Guimarães, pais de Beto, que contaram com o apoio de Fausto Pereira Lima no início desse trabalho. Desde então, segue o mesmo princípio: selecionar animais que dão resultado a pasto.</p>
       <p>Hoje, Beto Guimarães está à frente da seleção e da fazenda. Seus filhos Rafael, Lorenzo e Eduarda participam do trabalho e do processo de sucessão, mantendo a continuidade de uma seleção construída geração após geração.</p>
     </div>
   </div>
@@ -205,11 +209,12 @@
         </div>
 
         <div class="fazenda__mapa">
-          <img src="assets/mapa-go.png" alt="Localização da Fazenda Laçada no estado de Goiás" loading="lazy">
-          <!-- Quando houver a rota do Google Maps, acrescentar na âncora abaixo:
-               href="..." target="_blank" rel="noopener".
-               Sem href ela não é clicável nem recebe foco. -->
-          <a class="fazenda__rota" aria-disabled="true">Traçar rotas</a>
+          <!-- Mapa e ação são um único link: o card inteiro do mapa é clicável
+               e o teclado para uma vez só, sem destino duplicado. -->
+          <a class="fazenda__rota-link" href="https://maps.app.goo.gl/uPWNQqVWtxYE2X6u8" target="_blank" rel="noopener">
+            <img src="assets/mapa-go.png" alt="Localização da Fazenda Laçada no estado de Goiás" loading="lazy">
+            <span class="fazenda__rota">Traçar rota</span>
+          </a>
         </div>
       </article>
 
@@ -222,10 +227,28 @@
         </div>
 
         <div class="fazenda__mapa">
-          <img src="assets/mapa-to.png" alt="Localização da Fazenda Laçada Lagoa Azul no estado do Tocantins" loading="lazy">
-          <a class="fazenda__rota" aria-disabled="true">Traçar rotas</a>
+          <a class="fazenda__rota-link" href="https://maps.app.goo.gl/BRz1kSbhh5NyXKbJ7" target="_blank" rel="noopener">
+            <img src="assets/mapa-to.png" alt="Localização da Fazenda Laçada Lagoa Azul no estado do Tocantins" loading="lazy">
+            <span class="fazenda__rota">Traçar rota</span>
+          </a>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 7. VÍDEO INSTITUCIONAL ===================== -->
+<section class="secao secao--escuro" id="video">
+  <div class="conteudo centro">
+    <p class="kicker kicker--claro">Conheça a Laçada</p>
+    <h2 class="titulo titulo--claro">Nossa história, seleção e trabalho no campo</h2>
+    <!-- loading="lazy" evita baixar o player do YouTube antes de a seção
+         chegar perto da tela. Sem autoplay, com tela cheia liberada. -->
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/_2g9kwAqV74" title="Vídeo institucional da Fazenda Laçada"
+              loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
     </div>
   </div>
 </section>

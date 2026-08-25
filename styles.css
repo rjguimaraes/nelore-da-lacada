@@ -114,6 +114,9 @@ p { margin: 0 0 1rem; }
 }
 .titulo--claro { color: var(--bege-claro); }
 
+/* kicker sobre Verde Profundo: dourado, o mesmo da faixa sazonal */
+.kicker--claro { color: var(--dourado); }
+
 .apoio { font-size: 1.05rem; color: var(--oliva-escuro); max-width: 46ch; }
 .centro .apoio { margin-left: auto; margin-right: auto; }
 .apoio--claro { color: var(--bege-claro); opacity: .9; }
@@ -464,13 +467,16 @@ p { margin: 0 0 1rem; }
    Os dois estados tem proporcoes bem diferentes (GO quase quadrado, TO alto e
    estreito), entao cada um entra na mesma caixa com object-fit: contain:
    mesma altura nos dois cards, largura livre, sem distorcao. */
-.fazenda__mapa { margin-top: 1.5rem; }
+.fazenda__mapa { margin-top: 1.5rem; text-align: center; }
 .fazenda__mapa img {
   width: 100%;
   height: 190px;
   object-fit: contain;
-  object-position: left center;
 }
+
+/* Mapa e acao formam um unico link. O bloco todo e clicavel e o teclado
+   recebe uma parada so, em vez de dois links para o mesmo destino. */
+.fazenda__rota-link { display: block; text-decoration: none; color: inherit; }
 
 /* Acao secundaria. Texto em Oliva Escuro com filete Dourado, nao texto dourado:
    o padrao dourado do site so aparece sobre fundo escuro e aqui, sobre o Bege
@@ -489,11 +495,22 @@ p { margin: 0 0 1rem; }
   padding-bottom: .2rem;
   transition: opacity .2s ease;
 }
-/* enquanto nao tem destino, nao se comporta como link */
-.fazenda__rota:not([href]) { cursor: default; }
-.fazenda__rota[href]:hover { opacity: .7; }
+.fazenda__rota-link:hover .fazenda__rota,
+.fazenda__rota-link:focus-visible .fazenda__rota { opacity: .7; }
 
-/* ---------- 13. Depoimento ---------- */
+/* ---------- 13. Video institucional ---------- */
+/* aspect-ratio no lugar do truque do padding-bottom: menos codigo e o player
+   acompanha a largura em qualquer tela, sem deformar. */
+.video { max-width: 880px; margin: 2.5rem auto 0; }
+.video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+}
+
+/* ---------- 14. Depoimento ---------- */
 .depoimento { margin: 2.5rem 0 0; }
 .depoimento blockquote { margin: 0; }
 .depoimento p {
@@ -572,7 +589,7 @@ p { margin: 0 0 1rem; }
     --cabecalho-padding: 1.5rem;
   }
 
-  .linha-tempo { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+  .linha-tempo { grid-template-columns: repeat(6, 1fr); gap: 1.25rem; }
 
   .menu-botao { display: none; }
   .menu {
@@ -610,6 +627,6 @@ p { margin: 0 0 1rem; }
   }
   /* a coluna do mapa se centraliza: como GO e TO tem larguras renderizadas
      diferentes, e o centro que deixa a acao no mesmo ponto nos dois cards */
-  .fazenda__mapa { margin-top: 0; text-align: center; }
-  .fazenda__mapa img { height: 165px; object-position: center; }
+  .fazenda__mapa { margin-top: 0; }
+  .fazenda__mapa img { height: 165px; }
 }
