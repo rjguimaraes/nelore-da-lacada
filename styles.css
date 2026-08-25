@@ -25,12 +25,19 @@
   --largura-max: 1180px;
   --margem: 6vw;
   --respiro-secao: 4.5rem;
+
+  /* Altura real do cabeçalho = altura do logo + padding vertical.
+     O hero usa este valor para subir exatamente o que o cabeçalho ocupa.
+     Se o logo ou o padding mudarem, atualize aqui junto. */
+  --logo-altura: 64px;
+  --cabecalho-padding: .6rem;
+  --cabecalho-altura: calc(var(--logo-altura) + var(--cabecalho-padding) * 2);
 }
 
 /* ---------- 2. Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--cabecalho-altura); }
 
 body {
   margin: 0;
@@ -45,6 +52,19 @@ body {
 img { max-width: 100%; display: block; }
 
 a { color: inherit; }
+
+/* Padrão de link de texto: dourado e semibold, sem sublinhado.
+   Vale para links dentro de blocos de texto. Botões, menu e faixa sazonal
+   têm classe própria e ficam de fora. */
+.contato__secundario a,
+.rodape__dados a {
+  color: var(--dourado);
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+.contato__secundario a:hover,
+.rodape__dados a:hover { opacity: .75; }
 
 h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; margin: 0; }
 
@@ -197,10 +217,11 @@ p { margin: 0 0 1rem; }
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--dourado);
+  font-weight: 700;
   text-decoration: none;
-  border-bottom: 1px solid var(--dourado);
-  padding-bottom: 1px;
+  transition: opacity .2s ease;
 }
+.faixa__link:hover { opacity: .75; }
 
 /* ---------- 6. Cabeçalho ---------- */
 .cabecalho {
@@ -214,12 +235,13 @@ p { margin: 0 0 1rem; }
 .cabecalho__interno {
   max-width: var(--largura-max);
   margin: 0 auto;
-  padding: .6rem var(--margem);
+  padding: var(--cabecalho-padding) var(--margem);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.cabecalho__logo img { height: 64px; width: auto; }
+/* display:block evita o espaço extra que a linha de texto daria abaixo da img */
+.cabecalho__logo img { height: var(--logo-altura); width: auto; display: block; }
 
 .menu-botao {
   background: none;
@@ -272,8 +294,10 @@ p { margin: 0 0 1rem; }
   min-height: min(88vh, 820px);
   display: flex;
   align-items: flex-end;
-  margin-top: -68px; /* o cabeçalho flutua sobre a foto */
-  padding-top: 68px;
+  /* sobe exatamente a altura do cabeçalho, que passa a flutuar sobre o vídeo.
+     Um valor fixo aqui deixava sobrar uma faixa do fundo do body no celular. */
+  margin-top: calc(-1 * var(--cabecalho-altura));
+  padding-top: var(--cabecalho-altura);
 }
 .hero__imagem { position: absolute; inset: 0; }
 .hero__imagem img { width: 100%; height: 100%; object-fit: cover; }
@@ -435,11 +459,21 @@ p { margin: 0 0 1rem; }
 .fazenda p:last-child { margin-bottom: 0; font-size: .95rem; }
 
 /* ---------- 13. Depoimento ---------- */
-.depoimento {
-  margin: 2rem 0 0;
+.depoimento { margin: 2.5rem 0 0; }
+.depoimento blockquote { margin: 0; }
+.depoimento p {
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: clamp(1.15rem, 3.2vw, 1.5rem);
+  line-height: 1.45;
   color: var(--verde-profundo);
+  margin: 0;
+}
+.depoimento__autor {
+  margin-top: 1.5rem;
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--oliva-escuro);
 }
 
 /* ---------- 14. Contato ---------- */
@@ -447,10 +481,8 @@ p { margin: 0 0 1rem; }
 .contato__secundario {
   margin-top: 2rem;
   font-size: .85rem;
-  color: var(--bege-claro);
-  opacity: .85;
+  color: rgba(236, 229, 214, .85);
 }
-.contato__secundario a { text-decoration: none; border-bottom: 1px solid var(--dourado); }
 .contato__secundario span { color: var(--dourado); margin: 0 .3rem; }
 
 /* ---------- 15. Rodapé ---------- */
@@ -462,8 +494,8 @@ p { margin: 0 0 1rem; }
 }
 .rodape__interno { display: grid; gap: 1.5rem; align-items: center; }
 .rodape__logo { height: 120px; width: auto; }
-.rodape__dados p { margin: 0 0 .2rem; font-size: .8rem; opacity: .9; }
-.rodape__dados a { text-decoration: none; border-bottom: 1px solid var(--dourado); }
+/* cor levemente suavizada no lugar de opacity, para não apagar o link dourado */
+.rodape__dados p { margin: 0 0 .2rem; font-size: .8rem; color: rgba(236, 229, 214, .9); }
 
 /* ---------- 16. WhatsApp flutuante ---------- */
 .whatsapp-flutuante {
@@ -498,13 +530,12 @@ p { margin: 0 0 1rem; }
 }
 
 @media (min-width: 960px) {
-  :root { --margem: 4rem; --respiro-secao: 8rem; }
-
-  html { scroll-padding-top: 136px; }
-
-  .cabecalho__interno { padding: 1.5rem var(--margem); }
-  .cabecalho__logo img { height: 88px; }
-  .hero { margin-top: -136px; padding-top: 136px; }
+  :root {
+    --margem: 4rem;
+    --respiro-secao: 8rem;
+    --logo-altura: 88px;
+    --cabecalho-padding: 1.5rem;
+  }
 
   .linha-tempo { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
 
