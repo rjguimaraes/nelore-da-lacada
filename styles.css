@@ -114,9 +114,6 @@ p { margin: 0 0 1rem; }
 }
 .titulo--claro { color: var(--bege-claro); }
 
-/* kicker sobre Verde Profundo: dourado, o mesmo da faixa sazonal */
-.kicker--claro { color: var(--dourado); }
-
 .apoio { font-size: 1.05rem; color: var(--oliva-escuro); max-width: 46ch; }
 .centro .apoio { margin-left: auto; margin-right: auto; }
 .apoio--claro { color: var(--bege-claro); opacity: .9; }
